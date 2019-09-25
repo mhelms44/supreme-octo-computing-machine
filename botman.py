@@ -125,7 +125,7 @@ class Music:
 
     @commands.command(pass_context=True, no_pm=True)
     async def omg(self, ctx):
-        """Plays a local file"""
+        """OH MY GOD"""
         state = self.get_voice_state(ctx.message.server)
         opts = {
             'default_search': 'auto',
@@ -148,7 +148,7 @@ class Music:
 
     @commands.command(pass_context=True, no_pm=True)
     async def wtf(self, ctx):
-        """Plays a local file"""
+        """Dunky can't believe it"""
         state = self.get_voice_state(ctx.message.server)
         opts = {
             'default_search': 'auto',
@@ -170,31 +170,8 @@ class Music:
             player.volume = 0.8
 
     @commands.command(pass_context=True, no_pm=True)
-    async def pulled(self, ctx):
-        """Plays a local file"""
-        state = self.get_voice_state(ctx.message.server)
-        opts = {
-            'default_search': 'auto',
-            'quiet': True,
-        }
-
-        if state.voice is None:
-            success = await ctx.invoke(self.summon)
-            if not success:
-                return
-
-        try:
-            player = state.voice.create_ffmpeg_player('pulled.mp3')
-            player.start()
-        except Exception as e:
-            fmt = 'Yo you suck tho haha!: ```py\n{}: {}\n```'
-            await self.bot.send_message(ctx.message.channel, fmt.format(type(e).__name__, e))
-        else:
-            player.volume = 0.8
-
-    @commands.command(pass_context=True, no_pm=True)
     async def myself(self, ctx):
-        """Plays a local file"""
+        """Wouldn't mind some myself"""
         state = self.get_voice_state(ctx.message.server)
         opts = {
             'default_search': 'auto',
@@ -216,31 +193,8 @@ class Music:
             player.volume = 1.0
 
     @commands.command(pass_context=True, no_pm=True)
-    async def sippin(self, ctx):
-        """Plays a local file"""
-        state = self.get_voice_state(ctx.message.server)
-        opts = {
-            'default_search': 'auto',
-            'quiet': True,
-        }
-
-        if state.voice is None:
-            success = await ctx.invoke(self.summon)
-            if not success:
-                return
-
-        try:
-            player = state.voice.create_ffmpeg_player('sippin.mp3')
-            player.start()
-        except Exception as e:
-            fmt = 'Yo you suck tho haha!: ```py\n{}: {}\n```'
-            await self.bot.send_message(ctx.message.channel, fmt.format(type(e).__name__, e))
-        else:
-            player.volume = 1.0
-
-    @commands.command(pass_context=True, no_pm=True)
     async def friends(self, ctx):
-        """Plays a local file"""
+        """THOSE ARE MY F R I E N D S"""
         state = self.get_voice_state(ctx.message.server)
         opts = {
             'default_search': 'auto',
@@ -263,7 +217,7 @@ class Music:
 
     @commands.command(pass_context=True, no_pm=True)
     async def selfish(self, ctx):
-        """Plays a local file"""
+        """That is pretty pretty selfish"""
         state = self.get_voice_state(ctx.message.server)
         opts = {
             'default_search': 'auto',
@@ -286,7 +240,7 @@ class Music:
 
     @commands.command(pass_context=True, no_pm=True)
     async def beh(self, ctx):
-        """Plays a local file"""
+        """Dunkey making random noise"""
         state = self.get_voice_state(ctx.message.server)
         opts = {
             'default_search': 'auto',
@@ -420,7 +374,7 @@ class Music:
             skip_count = len(state.skip_votes)
             await self.bot.say('Now playing {} [skips: {}/3]'.format(state.current, skip_count))
 
-bot = commands.Bot(command_prefix=commands.when_mentioned_or('^'), description='OH MY GOD')
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('^'), description='Botman is here to help!')
 bot.add_cog(Music(bot))
 
 @bot.event
