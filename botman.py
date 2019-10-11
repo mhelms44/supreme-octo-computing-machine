@@ -4,7 +4,7 @@ from discord.ext import commands
 import youtube_dl
 import logging
 from sys import argv
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 
 if not discord.opus.is_loaded():
