@@ -216,6 +216,29 @@ class Music:
             player.volume = 1.0
 
     @commands.command(pass_context=True, no_pm=True)
+    async def squadup(self, ctx):
+        """covidsix9"""
+        state = self.get_voice_state(ctx.message.server)
+        opts = {
+            'default_search': 'auto',
+            'quiet': True,
+        }
+
+        if state.voice is None:
+            success = await ctx.invoke(self.summon)
+            if not success:
+                return
+
+        try:
+            player = state.voice.create_ffmpeg_player('squadup.mp3')
+            player.start()
+        except Exception as e:
+            fmt = 'Yo you suck tho haha!: ```py\n{}: {}\n```'
+            await self.bot.send_message(ctx.message.channel, fmt.format(type(e).__name__, e))
+        else:
+            player.volume = 1.0
+
+    @commands.command(pass_context=True, no_pm=True)
     async def selfish(self, ctx):
         """That is pretty pretty selfish"""
         state = self.get_voice_state(ctx.message.server)
